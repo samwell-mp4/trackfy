@@ -48,7 +48,7 @@ const AppContent = () => {
         <Route path="/shared/:token" element={<SharedTrackView />} />
 
 
-        {/* Artista Hub Routes */}
+        {/* Trackfy Routes */}
         <Route
           path="/artist-hub"
           element={

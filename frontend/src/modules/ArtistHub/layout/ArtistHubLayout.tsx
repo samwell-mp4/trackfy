@@ -30,7 +30,7 @@ export const ArtistHubLayout: React.FC = () => {
                 <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
-                <span className="mobile-brand">Artista Hub</span>
+                <span className="mobile-brand">Trackfy</span>
             </div>
 
             {/* Overlay for mobile */}
@@ -41,7 +41,7 @@ export const ArtistHubLayout: React.FC = () => {
                 <div className="hub-brand">
                     <div className="brand-icon">🎸</div>
                     <div className="brand-text">
-                        <span className="brand-title">Artista Hub</span>
+                        <span className="brand-title">Trackfy</span>
                         <span className="brand-subtitle">Workspace</span>
                     </div>
                 </div>

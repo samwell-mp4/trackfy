@@ -42,7 +42,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, onNavigate }) => {
                     onClick={() => navigate('/artist-hub')}
                 >
                     <Music size={20} />
-                    <span>Ir para Artista Hub</span>
+                    <span>Ir para Trackfy</span>
                 </button>
             </div>
         </div>

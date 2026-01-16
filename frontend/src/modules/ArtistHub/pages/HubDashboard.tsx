@@ -175,7 +175,7 @@ export const HubDashboard: React.FC = () => {
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
-                <h1 style={{ color: 'white' }}>Dashboard do Artista</h1>
+                <h1 style={{ color: 'white' }}>Dashboard Trackfy</h1>
                 <p>Bem-vindo ao seu hub de gerenciamento musical.</p>
             </header>
 
