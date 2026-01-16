@@ -1,0 +1,4 @@
+/node_modules
+backend/downloads
+*.mp4
+.env

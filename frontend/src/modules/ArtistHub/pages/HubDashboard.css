@@ -1,0 +1,390 @@
+.dashboard-container {
+    padding-bottom: 60px;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard-header {
+    margin-bottom: 40px;
+    padding: 0 4px;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    color: white;
+    /* Force white */
+    background: none;
+    /* Remove gradient text for better visibility if requested, or ensure it's light */
+    -webkit-text-fill-color: initial;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.dashboard-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.fin-value {
+    font-size: 1.4rem;
+}
+
+.fin-value.highlight {
+    font-size: 1.6rem;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Cards */
+.glass-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Stats */
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.stat-trend {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.trend-up {
+    color: #10b981;
+}
+
+.trend-down {
+    color: #ef4444;
+}
+
+.trend-neutral {
+    color: var(--text-secondary);
+}
+
+/* Task Progress */
+.task-progress-ring {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.task-progress-fill {
+    height: 100%;
+    background: var(--secondary-gradient);
+    border-radius: 3px;
+    transition: width 1s ease-out;
+}
+
+.task-stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Widgets */
+.widget-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.widget-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.widget-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.item-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(139, 92, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #a78bfa;
+    flex-shrink: 0;
+}
+
+.item-info {
+    flex: 1;
+    min-width: 0;
+    /* Prevent text overflow */
+}
+
+.item-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-amount {
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.amount-expense {
+    color: #ef4444;
+}
+
+/* Financial Section */
+.financial-section {
+    grid-column: 1 / -1;
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.financial-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.fin-metric {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 24px;
+}
+
+.fin-divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.fin-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fin-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.fin-value.highlight {
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+}
+
+.fin-value.positive {
+    color: #10b981;
+}
+
+.fin-value.negative {
+    color: #ef4444;
+}
+
+.fin-trend {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cols tablet */
+    }
+
+    .glass-card {
+        grid-column: span 1 !important;
+    }
+
+    .financial-section {
+        grid-column: 1 / -1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+        padding-bottom: 100px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Stack cards in 2 columns on mobile too to save space */
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        /* Tighter gap */
+    }
+
+    /* Financial Section takes full width */
+    .financial-section,
+    .glass-card:has(.widget-list),
+    /* Widgets (Agenda, Expenses) might need full width if complex */
+    .glass-card:nth-child(n) {
+        /* Or just make everything 2 cols except complex ones? Let's try flexible approach */
+        grid-column: span 2 !important;
+        /* Default to full width for readability, but we want 2 cols... */
+    }
+
+    /* Let's be specific for the top stats: 2 cols */
+    /* Stats Row items (Pending Tasks, Total Artists, Catalog) */
+    .dashboard-grid>.glass-card:nth-child(1),
+    .dashboard-grid>.glass-card:nth-child(2),
+    .dashboard-grid>.glass-card:nth-child(3),
+    .dashboard-grid>.glass-card:nth-child(6)
+
+    /* Investment */
+        {
+        grid-column: span 1 !important;
+        padding: 16px;
+        /* Compact padding */
+    }
+
+    /* Complex widgets (Contracts, Agenda, Expenses) -> Full Width */
+    .dashboard-grid>.glass-card:nth-child(4),
+    /* Contracts */
+    .dashboard-grid>.glass-card:nth-child(5),
+    /* Agenda */
+    .dashboard-grid>.glass-card:nth-child(6),
+    /* Expenses - wait, index might shift. Let's use class based if possible or just accept full width for lists */
+    .widget-list {
+        /* Keep lists readable */
+    }
+
+    /* Correction: let's try a hybrid. 
+       - Stats: 2 cols
+       - Lists: Full width
+    */
+    .dashboard-grid>.glass-card:has(.stat-value) {
+        grid-column: span 1 !important;
+    }
+
+    .dashboard-grid>.glass-card:has(.widget-list),
+    .financial-section {
+        grid-column: span 2 !important;
+    }
+
+
+    /* Financial Strip - Scrollable or Compact Grid */
+    .financial-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 1.6rem;
+    }
+}
+
+```

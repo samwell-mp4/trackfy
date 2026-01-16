@@ -1,0 +1,509 @@
+.track-list-page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.tracks-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.track-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.track-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.track-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.track-meta {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    margin-top: 2rem;
+}
+
+/* Metrics Row - Compact & Agile */
+.tl-metrics-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    flex-wrap: wrap;
+    /* Allow wrapping on very small screens */
+}
+
+.tl-metric-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+}
+
+.tl-metric-card:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    margin-left: 1.5rem;
+}
+
+.tl-metric-card .label {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.tl-metric-card .value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+/* Filter Toolbar */
+.tl-filter-toolbar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex-wrap: wrap;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0 12px;
+    flex: 2;
+    min-width: 200px;
+}
+
+.search-box .icon {
+    margin-right: 8px;
+    opacity: 0.5;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    outline: none;
+}
+
+.filter-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-select:focus {
+    border-color: #f97316;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.filter-select option {
+    background: #0f172a;
+    color: white;
+}
+
+/* Agile Track Card Styles */
+/* Agile Track Card Styles - Classic Hybrid */
+/* Agile Track Card Styles - Classic Hybrid */
+.track-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    /* Ensure it behaves like a block container for the inner flex */
+}
+
+.track-card-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1rem;
+    width: 100%;
+    /* Ensure it fills the card */
+}
+
+.track-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+    /* Forcefully take up all available space */
+}
+
+/* ... existing styles ... */
+
+.track-actions-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* Removed margin-left: auto as space-between handles it */
+    flex-shrink: 0;
+}
+
+/* Quick Actions appear on hover */
+.quick-actions-hover {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.2s ease;
+}
+
+.track-card:hover .quick-actions-hover {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .track-list-page {
+        padding: 1rem;
+        padding-bottom: 6rem;
+        /* Space for bottom nav if exists */
+    }
+
+    /* Header */
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    /* Metrics Compact on Mobile */
+    .tl-metrics-row {
+        gap: 1rem;
+        padding: 1rem;
+        overflow-x: auto;
+        /* Scroll horizontally if needed */
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tl-metric-card {
+        flex-shrink: 0;
+    }
+
+    .tl-metric-card .value {
+        font-size: 1.1rem;
+    }
+
+    /* Filters Stack */
+    .tl-filter-toolbar {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .search-box,
+    .filter-select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Track Card Mobile Stacking */
+    .track-card-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .track-info-section {
+        width: 100%;
+        flex-grow: 0;
+    }
+
+    .track-meta-row {
+        width: 100%;
+        justify-content: space-between;
+        /* Artist Left, Status Right */
+        margin-top: 0.5rem;
+    }
+
+    .track-actions-section {
+        width: 100%;
+        justify-content: space-between;
+        /* Actions Left, Button Right */
+        margin-left: 0;
+        /* Reset desktop override */
+    }
+
+    /* Show quick actions always on mobile/touch since no hover */
+    .quick-actions-hover {
+        opacity: 1;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin-right: 0;
+        pointer-events: auto;
+    }
+
+    /* Make Main Button full width on very small screens */
+    .track-actions-section button:last-child {
+        flex-grow: 1;
+    }
+}
+
+/* Progress Line at Bottom */
+.track-progress-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fb923c, #f97316);
+    transition: width 0.5s ease-out;
+    opacity: 0.8;
+}
+
+.mini-status-selector {
+    appearance: none;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    outline: none;
+    background-image: none;
+    /* No arrow for mini */
+    text-align: center;
+}
+
+.mini-status-selector:hover {
+    filter: brightness(1.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.mini-status-selector option {
+    background: #1e293b;
+    color: white;
+}
+
+/* Status Colors for Mini Selector */
+.mini-status-selector.status-idea {
+    background: rgba(148, 163, 184, 0.2);
+    color: #cbd5e1;
+    border-color: rgba(148, 163, 184, 0.3);
+}
+
+.mini-status-selector.status-pre_production {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.mini-status-selector.status-recording {
+    background: rgba(234, 179, 8, 0.2);
+    color: #facc15;
+    border-color: rgba(234, 179, 8, 0.3);
+}
+
+.mini-status-selector.status-mixing {
+    background: rgba(249, 115, 22, 0.2);
+    color: #fb923c;
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.mini-status-selector.status-mastering {
+    background: rgba(236, 72, 153, 0.2);
+    color: #f472b6;
+    border-color: rgba(236, 72, 153, 0.3);
+}
+
+.mini-status-selector.status-finished {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.mini-status-selector.status-released {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.3);
+}
+
+.progress-bar-container {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin-top: auto;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fb923c, #f97316);
+    transition: width 0.5s ease-out;
+}
+
+
+/* --- Dashboard Tabs --- */
+.track-dashboard-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f97316;
+}
+
+/* Integrated Agenda Section */
+.integrated-agenda-section {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.integrated-agenda-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.integrated-agenda-section .section-header h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+}
+
+.agenda-wrapper {
+    min-height: 500px;
+}
+
+/* Animation */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.empty-state p:first-child {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}

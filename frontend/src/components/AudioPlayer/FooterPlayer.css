@@ -1,0 +1,174 @@
+.footer-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    border-top: 1px solid #334155;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-player.minimized {
+    width: auto;
+    left: auto;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50px;
+    padding: 0.5rem;
+    background-color: #7c3aed;
+    border: none;
+}
+
+.player-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.fp-track-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 25%;
+}
+
+.fp-cover {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #1e293b;
+}
+
+.fp-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.fp-title {
+    font-weight: 600;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.fp-artist {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.fp-controls-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    gap: 0.5rem;
+}
+
+.fp-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fp-btn {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.fp-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.fp-play-btn {
+    background: white;
+    color: #0f172a;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+}
+
+.fp-play-btn:hover {
+    background: #e2e8f0;
+    transform: scale(1.05);
+}
+
+.fp-progress-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    max-width: 600px;
+}
+
+.fp-slider {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: #334155;
+    appearance: none;
+    cursor: pointer;
+}
+
+.fp-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    display: none;
+    /* Show on hover? */
+}
+
+.fp-slider:hover::-webkit-slider-thumb {
+    display: block;
+}
+
+.fp-volume-section {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.fp-volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fp-minimize-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+/* Minimized State */
+.minimized-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    cursor: pointer;
+}

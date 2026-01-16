@@ -1,0 +1,209 @@
+/* Career Roadmap Styles */
+
+.career-roadmap {
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 2rem;
+}
+
+.cr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.cr-title h2 {
+    font-size: 1.75rem;
+    margin: 0 0 0.5rem 0;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cr-subtitle {
+    color: #94a3b8;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Overall Progress removed */
+
+/* Phases Navigation */
+.cr-phases-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.cr-phase-tab {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    overflow: hidden;
+}
+
+.cr-phase-tab:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cr-phase-tab.active {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+}
+
+.cr-phase-tab.active .phase-icon {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+
+/* Indicator styles removed */
+
+.cr-phase-tab.completed .phase-icon {
+    filter: none;
+}
+
+.phase-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.phase-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.phase-counter {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Phase Content */
+.cr-phase-content {
+    background: rgba(30, 41, 59, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.content-header {
+    margin-bottom: 2rem;
+    border-left: 4px solid #f97316;
+    padding-left: 1rem;
+}
+
+.content-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.content-header p {
+    margin: 0;
+    color: #94a3b8;
+}
+
+.cr-checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.cr-checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cr-checklist-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.cr-checklist-item.checked {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.checkbox-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #64748b;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.cr-checklist-item.checked .checkbox-custom {
+    background: #10b981;
+    border-color: #10b981;
+}
+
+.item-label {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.cr-checklist-item.checked .item-label {
+    color: #fff;
+    text-decoration: none;
+    /* User might prefer clean look over strikethrough */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .cr-phases-nav {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    .cr-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cr-overall-progress {
+        width: 100%;
+    }
+}

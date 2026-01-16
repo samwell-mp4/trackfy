@@ -1,0 +1,164 @@
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.register-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.register-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%,
+            rgba(249, 115, 22, 0.15) 0%,
+            rgba(0, 0, 0, 0.9) 70%,
+            #000 100%);
+}
+
+.register-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    padding: var(--spacing-4);
+}
+
+.register-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-8);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(249, 115, 22, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+}
+
+.register-title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-2);
+}
+
+.register-subtitle {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+}
+
+.register-progress {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-6);
+}
+
+.progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    transition: background-color 0.3s ease;
+}
+
+.progress-dot.active {
+    background-color: var(--color-primary);
+}
+
+.role-selection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+}
+
+.role-card {
+    background: var(--color-bg-tertiary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.role-card:hover {
+    background: var(--color-bg-primary);
+    transform: translateY(-2px);
+}
+
+.role-card.selected {
+    border-color: var(--color-primary);
+    background: rgba(249, 115, 22, 0.1);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.role-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-3);
+    display: block;
+}
+
+.role-title {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-1);
+}
+
+.role-description {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.register-footer {
+    margin-top: var(--spacing-8);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.register-link-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.register-link-text a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link-text a:hover {
+    text-decoration: underline;
+}
+
+/* Animation Helpers */
+.step-container {
+    min-height: 300px;
+    /* Prevent height jumping */
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-4);
+}

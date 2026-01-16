@@ -1,0 +1,427 @@
+/* Music Organizer Container */
+.music-organizer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-bottom: 80px;
+    animation: fadeIn 0.5s ease-out;
+    box-sizing: border-box;
+}
+
+/* Header */
+.mo-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.mo-header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0 0 12px 0;
+    filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.2));
+}
+
+.mo-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Stepper */
+.mo-stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.mo-stepper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+    transform: translateY(-50%);
+}
+
+.step-indicator {
+    position: relative;
+    z-index: 1;
+    background: #0a0a0a;
+    /* Dark background to cover line */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.step-indicator.active {
+    border-color: #f97316;
+    color: white;
+    background: rgba(249, 115, 22, 0.15);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+    transform: scale(1.1);
+}
+
+.step-indicator.completed {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Content Card */
+.mo-content {
+    background: #0f172a;
+    /* Matte Slate/Black */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 48px;
+    min-height: 400px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.step-title {
+    font-size: 1.75rem;
+    margin: 0 0 32px 0;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Forms */
+.form-section {
+    margin-bottom: 32px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #f97316;
+    outline: none;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.form-col {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Upload Area */
+.upload-area {
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.upload-area:hover {
+    border-color: #f97316;
+    background: rgba(249, 115, 22, 0.05);
+    transform: translateY(-2px);
+}
+
+.cover-preview {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 0 auto 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Buttons */
+.mo-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-nav {
+    padding: 14px 36px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-prev {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-prev:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-next {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+.btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+}
+
+.btn-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    background: #333;
+}
+
+/* Participants & Details */
+.participant-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.participant-item:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.role-badge {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 12px;
+}
+
+/* Summary Grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 48px;
+}
+
+.summary-cover {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-details h3 {
+    font-size: 2.5rem;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+.summary-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 16px;
+}
+
+.detail-label {
+    width: 180px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.detail-value {
+    color: white;
+    font-weight: 600;
+    flex: 1;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .music-organizer-container {
+        padding: 1rem;
+        padding-bottom: 100px;
+        max-width: 100%;
+    }
+
+    .mo-content {
+        padding: 20px;
+        /* Drastically reduce from 48px */
+        border-radius: 16px;
+    }
+
+    .upload-area {
+        padding: 30px 20px;
+        /* Compact upload area */
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mo-stepper {
+        overflow-x: auto;
+        padding: 10px;
+        justify-content: flex-start;
+        gap: 24px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .mo-stepper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mo-stepper::before {
+        display: none;
+    }
+
+    .step-indicator {
+        flex-shrink: 0;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .summary-cover {
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .mo-actions {
+        flex-direction: column-reverse;
+        /* Save/Next on top or bottom? usually Next is primary. Column reverse puts last item first (Next on top) */
+        gap: 16px;
+    }
+
+    .btn-nav {
+        justify-content: center;
+        width: 100%;
+        padding: 16px;
+        /* Larger touch target */
+    }
+
+    /* Mobile Participants List */
+    .participant-item {
+        padding: 16px;
+        flex-direction: column;
+        /* Force column */
+    }
+
+    /* Target the inner flex container that holds Info + Actions */
+    .participant-item>div {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    /* Info Section */
+    .participant-item>div>div:first-child {
+        width: 100%;
+    }
+
+    /* Actions Section (Buttons) */
+    .participant-item>div>div:last-child {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* 3 buttons */
+        gap: 8px;
+        margin-top: 4px;
+    }
+
+    /* When Editing */
+    .participant-item input {
+        width: 100%;
+        margin-bottom: 8px;
+        /* Spacing between inputs */
+        font-size: 16px;
+        /* Prevent zoom on iOS */
+    }
+
+    .participant-item button {
+        justify-content: center;
+        height: 44px;
+        /* easier to tap */
+    }
+}

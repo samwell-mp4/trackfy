@@ -1,0 +1,153 @@
+.agenda-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-dark);
+    overflow: hidden;
+}
+
+.agenda-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.agenda-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header-left h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.date-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date-controls button {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    transition: color 0.2s;
+}
+
+.date-controls button:hover {
+    color: white;
+}
+
+.date-controls span {
+    font-weight: 600;
+    text-transform: capitalize;
+    min-width: 150px;
+    text-align: center;
+    color: white;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .agenda-container {
+        flex-direction: column;
+    }
+
+    .agenda-sidebar {
+        display: none;
+        /* Hide sidebar on mobile for now, or make it a drawer */
+    }
+
+    .agenda-main {
+        padding: 1rem;
+        padding-bottom: 100px;
+    }
+
+    .header-left h1 {
+        font-size: 1.5rem;
+        /* Reduced from 1.8 */
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Force icon size if it's an emoji/text */
+    .header-left h1::first-letter {
+        font-size: 1.5rem;
+        /* Prevent huge emoji */
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .date-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .date-controls span {
+        min-width: 0;
+        /* Allow shrink */
+        flex: 1;
+    }
+
+    .header-actions {
+        display: flex;
+        width: 100%;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        margin-top: 12px;
+    }
+
+    .header-actions button {
+        flex: 1;
+        white-space: nowrap;
+        justify-content: center;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Filters for Mobile - Restore Sidebar elements as horizontal scroll or similar if we modify HTML. 
+       For now, let's fix the basic layout and we might need to modify TSX to render filters in main view for mobile. 
+    */
+    .agenda-sidebar {
+        display: none;
+        /* Still hidden, we need to move filters to main view in TSX or make this a drawer */
+    }
+}
