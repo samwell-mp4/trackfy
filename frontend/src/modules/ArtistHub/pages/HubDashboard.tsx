@@ -180,47 +180,72 @@ export const HubDashboard: React.FC = () => {
             </header>
 
             <div className="dashboard-grid">
-                {/* Stats Row */}
-                <div className="glass-card" style={{ gridColumn: 'span 4' }}>
-                    <div className="card-header">
-                        <span className="card-title">Tarefas & Metas</span>
-                        <div className="card-icon">✅</div>
+                {/* Stats Scroll Container for Mobile */}
+                <div className="stats-scroll-container">
+                    {/* Stats Row */}
+                    <div className="glass-card" style={{ gridColumn: 'span 4' }}>
+                        <div className="card-header">
+                            <span className="card-title">Tarefas & Metas</span>
+                            <div className="card-icon">✅</div>
+                        </div>
+                        <div className="stat-value">{stats.pendingTasks}</div>
+                        <div className="stat-trend trend-neutral">
+                            Tarefas Pendentes
+                        </div>
+                        <div className="task-progress-ring">
+                            <div
+                                className="task-progress-fill"
+                                style={{ width: `${stats.totalTasks > 0 ? (stats.completedTasks / stats.totalTasks) * 100 : 0}%` }}
+                            ></div>
+                        </div>
+                        <div className="task-stats-row">
+                            <span>{stats.completedTasks} Concluídas</span>
+                            <span>{Math.round(stats.totalTasks > 0 ? (stats.completedTasks / stats.totalTasks) * 100 : 0)}%</span>
+                        </div>
                     </div>
-                    <div className="stat-value">{stats.pendingTasks}</div>
-                    <div className="stat-trend trend-neutral">
-                        Tarefas Pendentes
-                    </div>
-                    <div className="task-progress-ring">
-                        <div
-                            className="task-progress-fill"
-                            style={{ width: `${stats.totalTasks > 0 ? (stats.completedTasks / stats.totalTasks) * 100 : 0}%` }}
-                        ></div>
-                    </div>
-                    <div className="task-stats-row">
-                        <span>{stats.completedTasks} Concluídas</span>
-                        <span>{Math.round(stats.totalTasks > 0 ? (stats.completedTasks / stats.totalTasks) * 100 : 0)}%</span>
-                    </div>
-                </div>
 
-                <div className="glass-card" style={{ gridColumn: 'span 4' }}>
-                    <div className="card-header">
-                        <span className="card-title">Total de Artistas</span>
-                        <div className="card-icon">🎤</div>
+                    <div className="glass-card" style={{ gridColumn: 'span 4' }}>
+                        <div className="card-header">
+                            <span className="card-title">Total de Artistas</span>
+                            <div className="card-icon">🎤</div>
+                        </div>
+                        <div className="stat-value">{stats.totalArtists}</div>
+                        <div className="stat-trend trend-up">
+                            <span>+1 essa semana</span>
+                        </div>
                     </div>
-                    <div className="stat-value">{stats.totalArtists}</div>
-                    <div className="stat-trend trend-up">
-                        <span>+1 essa semana</span>
-                    </div>
-                </div>
 
-                <div className="glass-card" style={{ gridColumn: 'span 4' }}>
-                    <div className="card-header">
-                        <span className="card-title">Catálogo Musical</span>
-                        <div className="card-icon">🎵</div>
+                    <div className="glass-card" style={{ gridColumn: 'span 4' }}>
+                        <div className="card-header">
+                            <span className="card-title">Catálogo Musical</span>
+                            <div className="card-icon">🎵</div>
+                        </div>
+                        <div className="stat-value">{stats.totalTracks}</div>
+                        <div className="stat-trend trend-up">
+                            <span>Músicas Cadastradas</span>
+                        </div>
                     </div>
-                    <div className="stat-value">{stats.totalTracks}</div>
-                    <div className="stat-trend trend-up">
-                        <span>Músicas Cadastradas</span>
+
+                    <div className="glass-card" style={{ gridColumn: 'span 4' }}>
+                        <div className="card-header">
+                            <span className="card-title">Maior Investimento</span>
+                            <div className="card-icon">📈</div>
+                        </div>
+                        {financials.topInvestment.amount > 0 ? (
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
+                                <div style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                                    Categoria Principal
+                                </div>
+                                <div style={{ fontSize: '1.5rem', fontWeight: '700', color: '#fff', marginBottom: '4px' }}>
+                                    {getCategoryLabel(financials.topInvestment.category)}
+                                </div>
+                                <div style={{ fontSize: '2rem', fontWeight: '800', color: '#ef4444' }}>
+                                    {formatCurrency(financials.topInvestment.amount)}
+                                </div>
+                            </div>
+                        ) : (
+                            <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>Sem dados de investimento.</p>
+                        )}
                     </div>
                 </div>
 
@@ -306,28 +331,6 @@ export const HubDashboard: React.FC = () => {
                             ))
                         )}
                     </div>
-                </div>
-
-                <div className="glass-card" style={{ gridColumn: 'span 4' }}>
-                    <div className="card-header">
-                        <span className="card-title">Maior Investimento</span>
-                        <div className="card-icon">📈</div>
-                    </div>
-                    {financials.topInvestment.amount > 0 ? (
-                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-                            <div style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '8px' }}>
-                                Categoria Principal
-                            </div>
-                            <div style={{ fontSize: '1.5rem', fontWeight: '700', color: '#fff', marginBottom: '4px' }}>
-                                {getCategoryLabel(financials.topInvestment.category)}
-                            </div>
-                            <div style={{ fontSize: '2rem', fontWeight: '800', color: '#ef4444' }}>
-                                {formatCurrency(financials.topInvestment.amount)}
-                            </div>
-                        </div>
-                    ) : (
-                        <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>Sem dados de investimento.</p>
-                    )}
                 </div>
 
                 {/* Financial Overview Section - REDESIGNED STRIP */}

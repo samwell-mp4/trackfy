@@ -385,6 +385,35 @@
         grid-template-columns: 1fr 1fr;
         font-size: 1.6rem;
     }
+
+    /* Horizontal Scroll for Stats */
+    .stats-scroll-container {
+        grid-column: 1 / -1 !important;
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 16px;
+        /* Space for scrollbar */
+        scroll-snap-type: x mandatory;
+        margin-right: -1rem;
+        /* Bleed to edge */
+        padding-right: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .stats-scroll-container .glass-card {
+        min-width: 280px;
+        max-width: 280px;
+        scroll-snap-align: start;
+        grid-column: auto !important;
+        /* Override grid placement */
+        flex-shrink: 0;
+    }
 }
 
-```
+/* Desktop: Treat container as transparent to keep grid layout */
+@media (min-width: 769px) {
+    .stats-scroll-container {
+        display: contents;
+    }
+}
